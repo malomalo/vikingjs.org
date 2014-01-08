@@ -56,12 +56,129 @@ title: Viking.js
 {% endhighlight %}
 
         <h3>Models</h3>
-        <p>coercions...</p>
-{% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+
+        <p>
+            `Viking.Model` is an extension of
+            <a href="http://backbonejs.org/#Model">Backbone.Model</a>. It adds
+            naming, associations, data type coerions, selection, and modifies
+            sync to work with <a href="http://rubyonrails.org/">Ruby on Rails</a>
+            out of the box.
+        </p>
+        
+{% highlight javascript %}
+Ship = Viking.Model.extend('ship', {
+    
+    coercions: {
+        name: 'String',
+        size: 'Number',
+        attributes: 'JSON',
+        last_serviced_at: 'Date',
+        operational: 'Boolean'
+    },
+    
+    belongsTo: ['fleet'],
+    
+    hasMany: [['sailors', {model: 'Human'}]],
+    
+    initialize: function () {
+        // ...
+    }
+});
 {% endhighlight %}
 
+        <p>
+            Your are not required to pass a name. In the example above the name
+            `"ship"` allows Viking automatically read and build the associations
+            and generate any urls.
+        </p>
+
+        <p>
+            The coercions take care of serializing to and from JSON as well as
+            converting attributes to the appropriate type when they are set.
+        </p>
+        
+        <h3>Collections</h3>
+
+        <p>
+            `Viking.Collection` is an extension of
+            <a href="http://backbonejs.org/#Collection">Backbone.Collection</a>.
+            It adds predicates, selection, and modifies fetch to cancel any
+            current request if a new fetch is triggered.
+        </p>
+
+{% highlight javascript %}
+FleetCollection = Viking.Collection.extend({
+    model: Ship
+});
+{% endhighlight %}
+
+        <p>
+            You can attach a predicate to a collection.
+        </p>
+        
+{% highlight javascript %}
+var fleet = new FleetCollection({predicate: {}});
+
+// or
+var predicate = new Viking.Predicate();
+var fleet = new FleetCollection({predicate: predicate});
+{% endhighlight %}
+
+        <p>
+            If a predicate is set it's paramaters will be passed under the
+            `where` key when querying the server. When the predicate changes
+            the collection is re-fetched.
+        </p>
+        
+        <p>
+            To remove a predeicate call `#setPredicate` with a falsey value.
+        </p>
+        
+        <p>
+            In addition if you paginate your results you can also use a
+            `Viking.PaginatedCollection`
+        </p>
+
+{% highlight javascript %}
+FleetCollection = Viking.PaginatedCollection.extend({
+    model: Ship
+});
+{% endhighlight %}
+
+        <p>
+            A `Viking.PaginatedCollection` expects the response from the server
+            to be similar to following.
+        </p>
+
+{% highlight javascript %}
+{
+    page: 1,
+    offset: 0,
+    per_page: 25,
+    total_pages: 479,
+    total: 11974,
+    count: 25,
+    ships: [
+        // ...
+    ]
+}
+{% endhighlight %}
+
+        <p>
+            The paginated collection will have a `Viking.Cursor` available at
+            `collection.curosr`. Any changes to the attributes `page`, `offset`,
+            or `per_page` will trigger a fetch on the collection.
+        </p>
+        
+        <p>
+            The cursor has several helper functions to allow you to navigate.
+            The functions are `reset`, `incrementPage`, `decrementPage`, and
+            `goToPage`.
+        </p>
+        
+
         <h3>Associations</h3>
+        
         <p>relationships...</p>
 {% highlight html %}
 <script type="text/javascript" src="viking.js"></script>
@@ -79,11 +196,6 @@ title: Viking.js
 <script type="text/javascript" src="viking.js"></script>
 {% endhighlight %}
 
-        <h3>Collections</h3>
-        <p>paginated...</p>
-{% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
-{% endhighlight %}
 
         <h3>Predicate</h3>
         <p>coming...</p>
