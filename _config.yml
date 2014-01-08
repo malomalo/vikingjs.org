@@ -4,9 +4,12 @@ pygments: true
 exclude:
   - Gemfile
   - Gemfile.lock
+
 assets:
   sources:
     - _assets/fonts
     - _assets/images
     - _assets/javascripts
     - _assets/stylesheets
+
+port: 8000
