@@ -30,7 +30,7 @@ module Jekyll
       html = ''
       
       Github.contributors(@repo).each do |contributor|
-        html += contributor['login'] + "<img src=\"#{contributor["avatar_url"]}\">"
+        # html += contributor['login'] + "<img src=\"#{contributor["avatar_url"]}\">"
       end
       
       html
