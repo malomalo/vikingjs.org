@@ -56,7 +56,7 @@ title: Viking.js
             <div class="notes">
                 <p>
                     <code>Viking.Model</code> extends
-                    <a href="http://backbonejs.org/#Model">Backbone.Model</a>, and adds
+                    <a href="http://backbonejs.org/#Model">Backbone.Model</a> adding
                     naming, associations, data type coerions, selection, and modifies
                     sync to work with <a href="http://rubyonrails.org/">Ruby on Rails</a>
                     out of the box.
@@ -103,7 +103,7 @@ Ship = Viking.Model.extend('ship', {
                 <p>
                     <code>Viking.Collection</code> extends
                     <a href="http://backbonejs.org/#Collection">Backbone.Collection</a>,
-                    and adds predicates, selections, and modifies fetch to cancel any
+                    adding predicates, selections, and modifies fetch to cancel any
                     current request if a new fetch is triggered.
                 </p>
             </div>
@@ -218,9 +218,9 @@ Ship = Viking.Model.extend('ship', {
 });
 {% endhighlight %}
 {% highlight javascript %}
-    belongsTo: ['village'];
-    // or
-    belongsTo: [['owner', {model: 'Village'}]];
+belongsTo: ['village'];
+// or
+belongsTo: [['owner', {model: 'Village'}]];
 {% endhighlight %}
             </div>
         </div>
@@ -234,11 +234,11 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight javascript %}
-    hasMany: ['ships'];                          // uses `ShipCollection`
-    // or
-    hasMany: [['ships', {model: 'Ship'}]];       // uses `ShipCollection`
-    // or
-    hasMany: [['ships', {collection: 'Fleet'}]]; // uses `Fllet`
+hasMany: ['ships'];                     // uses `ShipCollection`
+// or
+hasMany: [['ships', {model: 'Ship'}]];  // uses `ShipCollection`
+// or
+hasMany: [['ships', {collection: 'Fleet'}]]; // uses `Fleet`
 {% endhighlight %}
             </div>
         </div>
@@ -251,7 +251,7 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+//TODO
 {% endhighlight %}
             </div>
         </div>
@@ -264,7 +264,7 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+//TODO
 {% endhighlight %}
             </div>
         </div>
@@ -277,7 +277,7 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+//TODO
 {% endhighlight %}
             </div>
         </div>
@@ -289,17 +289,17 @@ Ship = Viking.Model.extend('ship', {
                 <p>routers...</p>
             </div>
             <div class="code">
-                {% highlight html %}
-                [[ formFor(listing, function(f) { ]]
-                    <div class="section">
-                        [[= f.label('address') ]]
-                        [[= f.textField('address')]]
-    
-                        [[= f.label('space_type') ]]
-                        [[= f.select('space_type', ["lease", "sublease"]) ]]
-                    </div>
-                [[ }) ]]
-                {% endhighlight %}
+{% highlight html %}
+[[ formFor(listing, function(f) { ]]
+    <div class="section">
+        [[= f.label('address') ]]
+        [[= f.textField('address')]]
+
+        [[= f.label('space_type') ]]
+        [[= f.select('space_type', ["lease", "sublease"]) ]]
+    </div>
+[[ }) ]]
+{% endhighlight %}
             </div>
         </div>
 
@@ -311,7 +311,7 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+//TODO
 {% endhighlight %}
             </div>
         </div>
@@ -323,7 +323,7 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+//TODO
 {% endhighlight %}
             </div>
         </div>
@@ -335,7 +335,7 @@ Ship = Viking.Model.extend('ship', {
             </div>
             <div class="code">
 {% highlight html %}
-<script type="text/javascript" src="viking.js"></script>
+//TODO
 {% endhighlight %}
             </div>
         </div>
@@ -343,24 +343,19 @@ Ship = Viking.Model.extend('ship', {
 </div>
 
 
-<div class="section">
-    <div class="section-container">
+<div class="footer">
+    <div class="footer-container">
         <h2>Contributors</h2>
-        
         <p>
-            Viking.js is open source tool created for use at 42Floors.
+            Viking.js is open source tool created for use at <a href="http://42floors.com">42Floors</a>.
         </p>
-        
         <p>
-            Please report bugs on the GitHub issues page.
+            Please report bugs on the <a href="https://github.com/malomalo/viking/issues">GitHub issues page</a>.
         </p>
-        
         {% contributors malomalo/viking %}
-        
         <h2>Licensing</h2>
         <p>
-            Viking.js is an open source project created at
-            <a href="http://42floors.com">42Floors</a> and released under the
+            Viking.js is released under the
             <a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a>
         </p>
     </div>
