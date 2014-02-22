@@ -1,1 +1,5 @@
-_site/.DS_Store.bundle*.orig*#**~.env.sass-cache/
+_site
+.sass-cache
+.bundle
+.DS_Store
+*.orig
