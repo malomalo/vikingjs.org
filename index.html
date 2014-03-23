@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,700' rel='stylesheet' type='text/css'>
     
-    <link rel="stylesheet" href="/assets/application-0804405cebe6a800e3ada35e1f638f73.css">
+    <link rel="stylesheet" href="/assets/application-6c49fb305842d72fb57cd2b5ce3aba86.css">
 
 </head>
 <body>
@@ -28,7 +28,7 @@
 
 <div class="downloads">
     <a class="btn outline" href="https://github.com/malomalo/viking/">Github</a>
-    <a class="btn green" href="https://github.com/malomalo/viking/releases/download/v0.3.0/viking.js"><span class="icon">&#xe602;</span>Download v0.3.0</a>
+    <a class="btn green" href="https://github.com/malomalo/viking/releases/download/v0.5.0/viking.js"><span class="icon">&#xe602;</span>Download v0.5.0</a>
 </div>
 
 <div class="docs">
@@ -108,6 +108,51 @@
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// ...</span>
     <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+            </div>
+        </div>
+        
+        <h4>Single Table Inheritance</h4>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    <code>Viking.Model</code> supports Single table inheritance
+                    in a similar fashion to <a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html#label-Single+table+inheritance">Rails' STI</a>.
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                    <code>Viking.Model</code> allows inheritance by storing the
+                    name of the model in the <code>type</code> attribute (can be
+                    changed by setting <code>inheritanceAttribute</code> on the
+                    model).
+                </p>
+                <p>
+                    In the example when you do
+                    <code>new Destroyer({name: "37signals"})</code>, the object
+                    will have the <code>type</code> attribute set to
+                    <code>"destroyer"</code>.
+                </p>
+                <p>
+                    // TODO: mention about Ship.all returning all STI models and
+                    // Destroyer.all returning Destroyers and GuidedMissileDestroyers
+                </p>
+                <p>
+                    // TODO: mention about changing the `type` and perhaps
+                    // implement the becomes method internally
+                </p>
+            </div>
+            <div class="code">
+<div class="highlight"><pre><code class="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;sailors&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;Human&#39;</span><span class="p">}]],</span>
+<span class="p">});</span>
+
+<span class="nx">Destroyer</span> <span class="o">=</span> <span class="nx">Ship</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;destroyer&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;guns&#39;</span><span class="p">,</span> <span class="s1">&#39;torpedos&#39;</span><span class="p">],</span>
+<span class="p">});</span>
+
+<span class="nx">GuidedMissileDestroyer</span> <span class="o">=</span> <span class="nx">Destroyer</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;guided_missile_destroyer&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;missles&#39;</span><span class="p">],</span>
 <span class="p">});</span>
 </code></pre></div>
             </div>
@@ -203,7 +248,7 @@
 
 
 
-        <h3>Associations</h3>
+        <h3>Associations (TODO: move to Models)</h3>
         <div class="section">
             <div class="notes">
                 <h4>belongsTo</h4>
@@ -357,25 +402,25 @@
         </p>
                   <div class="contributor">
             <a href="https://github.com/malomalo">
-              <img src="https://avatars.githubusercontent.com/u/716">
+              <img src="https://avatars.githubusercontent.com/u/716?">
               <span class="name">malomalo</span>
             </a>
           </div>
           <div class="contributor">
             <a href="https://github.com/bemky">
-              <img src="https://avatars.githubusercontent.com/u/841033">
+              <img src="https://avatars.githubusercontent.com/u/841033?">
               <span class="name">bemky</span>
             </a>
           </div>
           <div class="contributor">
             <a href="https://github.com/waratuman">
-              <img src="https://avatars.githubusercontent.com/u/18227">
+              <img src="https://avatars.githubusercontent.com/u/18227?">
               <span class="name">waratuman</span>
             </a>
           </div>
           <div class="contributor">
             <a href="https://github.com/orangejulius">
-              <img src="https://avatars.githubusercontent.com/u/111716">
+              <img src="https://avatars.githubusercontent.com/u/111716?">
               <span class="name">orangejulius</span>
             </a>
           </div>

@@ -1216,7 +1216,8 @@ h4 {
     .footer .contributor img {
       border-radius: 50%;
       border: 1px solid #d9d9d9;
-      margin-bottom: 5px; }
+      margin-bottom: 5px;
+      width: 70px; }
     .footer .contributor .name {
       display: block; }
   .footer h2 {
