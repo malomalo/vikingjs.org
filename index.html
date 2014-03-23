@@ -95,6 +95,52 @@ Ship = Viking.Model.extend('ship', {
 {% endhighlight %}
             </div>
         </div>
+        
+        <h4>Single Table Inheritance</h4>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    <code>Viking.Model</code> supports Single table inheritance
+                    in a similar fashion to <a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html#label-Single+table+inheritance">Rails' STI</a>.
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                    <code>Viking.Model</code> allows inheritance by storing the
+                    name of the model in the <code>type</code> attribute (can be
+                    changed by setting <code>inheritanceAttribute</code> on the
+                    model).
+                </p>
+                <p>
+                    In the example when you do
+                    <code>new Destroyer({name: "37signals"})</code>, the object
+                    will have the <code>type</code> attribute set to
+                    <code>"destroyer"</code>.
+                </p>
+                <p>
+                    // TODO: mention about Ship.all returning all STI models and
+                    // Destroyer.all returning Destroyers and GuidedMissileDestroyers
+                </p>
+                <p>
+                    // TODO: mention about changing the `type` and perhaps
+                    // implement the becomes method internally
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+Ship = Viking.Model.extend('ship', {
+    hasMany: [['sailors', {model: 'Human'}]],
+});
+
+Destroyer = Ship.extend('destroyer', {
+    hasMany: ['guns', 'torpedos'],
+});
+
+GuidedMissileDestroyer = Destroyer.extend('guided_missile_destroyer', {
+    hasMany: ['missles'],
+});
+{% endhighlight %}
+            </div>
+        </div>
 
 
         <h3>Collections</h3>
@@ -190,7 +236,7 @@ FleetCollection = Viking.PaginatedCollection.extend({
 
 
 
-        <h3>Associations</h3>
+        <h3>Associations (TODO: move to Models)</h3>
         <div class="section">
             <div class="notes">
                 <h4>belongsTo</h4>
