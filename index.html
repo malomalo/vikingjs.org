@@ -96,6 +96,85 @@ Ship = Viking.Model.extend('ship', {
             </div>
         </div>
         
+        <h4>Associations</h4>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    <code>belongsTo</code> takes and array of names for the associations.
+                    By default a <code>get('fleet')</code> in the example above would
+                    return <code>undefined</code> on a new instance of the model.
+                </p>
+                <p>
+                    You can set the fleet with the normal <code>set</code> function or 
+                    through the inital attributes. Both accept either an model or the
+                    attributes used to construct the model.
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+Ship = Viking.Model.extend('ship', {
+    belongsTo: ['fleet']
+});
+{% endhighlight %}
+            </div>
+        </div>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    If the model name is different than the association name you can
+                    pass the model name as an option.
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+belongsTo: ['village'];
+// or
+belongsTo: [['owner', {model: 'Village'}]];
+{% endhighlight %}
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="notes">
+                <p>
+                    <code>hasMany</code> relationships are similar except they
+                    default to an empty collection. By default a
+                    <code>get('ships')</code> in the example above would return
+                    a <code>ShipCollection</code> on a new instance of the model.
+                </p>
+                <p>
+                  // TODO: talk about setting a collection
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+Fleet = Viking.Model.extend('fleet', {
+    hasMany: ['ships']
+});
+{% endhighlight %}
+            </div>
+        </div>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    If the collection or model name is different than the
+                    association name you can pass the model name as an option.
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+hasMany: ['ships'];
+// => uses `ShipCollection`
+
+hasMany: [['ships', {model: 'Ship'}]];
+// => uses `ShipCollection`
+
+hasMany: [['ships', {collection: 'Ships'}]];
+// => uses `Ships`
+{% endhighlight %}
+            </div>
+        </div>
+        
         <h4>Single Table Inheritance</h4>
         <div class="section">
             <div class="notes">
@@ -233,62 +312,6 @@ FleetCollection = Viking.PaginatedCollection.extend({
 {% endhighlight %}
             </div>
         </div>
-
-
-
-        <h3>Associations (TODO: move to Models)</h3>
-        <div class="section">
-            <div class="notes">
-                <h4>belongsTo</h4>
-                <p>
-                    <code>belongsTo</code> takes and array of names for the associations.
-                    By default a <code>get('fleet')</code> in the example above would
-                    return <code>undefined</code> on a new instance of the model.
-                </p>
-                <p>
-                    You can set the fleet with the normal <code>set</code> function or 
-                    through the inital attributes. Both accept either an model or the
-                    attributes used to construct the model.
-                </p>
-                <p>
-                    If the model name is different than the association name you can
-                    pass the model name as an option.
-                </p>
-            </div>
-            <div class="code">
-{% highlight javascript %}
-Ship = Viking.Model.extend('ship', {
-    belongsTo: ['fleet'],
-
-    hasMany: [['sailors', {model: 'Human'}]],
-});
-{% endhighlight %}
-{% highlight javascript %}
-belongsTo: ['village'];
-// or
-belongsTo: [['owner', {model: 'Village'}]];
-{% endhighlight %}
-            </div>
-        </div>
-        <div class="section">
-            <div class="notes">
-                <h4>hasMany</h4>
-                <p>
-                    <code>hasMany</code> relationships are similar except they default
-                    to an empty collection.
-                </p>
-            </div>
-            <div class="code">
-{% highlight javascript %}
-hasMany: ['ships'];                     // uses `ShipCollection`
-// or
-hasMany: [['ships', {model: 'Ship'}]];  // uses `ShipCollection`
-// or
-hasMany: [['ships', {collection: 'Fleet'}]]; // uses `Fleet`
-{% endhighlight %}
-            </div>
-        </div>
-
 
         <h3>Controllers</h3>
         <div class="section">
