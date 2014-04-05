@@ -28,7 +28,7 @@
 
 <div class="downloads">
     <a class="btn outline" href="https://github.com/malomalo/viking/">Github</a>
-    <a class="btn green" href="https://github.com/malomalo/viking/releases/download/v0.5.0/viking.js"><span class="icon">&#xe602;</span>Download v0.5.0</a>
+    <a class="btn green" href="https://github.com/malomalo/viking/releases/download/v0.6.0/viking.js"><span class="icon">&#xe602;</span>Download v0.6.0</a>
 </div>
 
 <div class="docs">
@@ -117,14 +117,15 @@
         <div class="section">
             <div class="notes">
                 <p>
-                    <code>belongsTo</code> takes and array of names for the associations.
-                    By default a <code>get('fleet')</code> in the example above would
-                    return <code>undefined</code> on a new instance of the model.
+                    <code>belongsTo</code> takes and array of names for the
+					associations. By default a <code>get('fleet')</code> in the
+					example would return <code>undefined</code> on a new instance
+					of the model.
                 </p>
                 <p>
-                    You can set the fleet with the normal <code>set</code> function or 
-                    through the inital attributes. Both accept either an model or the
-                    attributes used to construct the model.
+                    You can set the fleet with the normal <code>set</code> function
+					or through the inital attributes. Both accept either an model
+					or the attributes used to construct the model.
                 </p>
             </div>
             <div class="code">
@@ -145,6 +146,42 @@
 <div class="highlight"><pre><code class="javascript"><span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;village&#39;</span><span class="p">];</span>
 <span class="c1">// or</span>
 <span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;owner&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;Village&#39;</span><span class="p">}]];</span>
+</code></pre></div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    Viking also supports polymorphic relations in a similar
+					fashion to Rails. If you specify <code>polymorphic: true</code>
+					in the options of a <code>belongsTo</code> relation.
+                </p>
+				<p>
+					In the example when setting or initalizing the model, if 
+					<code>subject</code> is a normal Javascript Object Viking
+					will look for <code>subject_type</code> in the attributes to
+					know what type of model <code>subject</code> needs to
+					instantiated as.
+				</p>
+				<p>
+					When setting or initalizing the model, if <code>subject</code>
+					is a Viking.Model then <code>subject_type</code> will be set
+					to the modelName of the value.
+				</p>
+            </div>
+            <div class="code">
+<div class="highlight"><pre><code class="javascript"><span class="nx">Model</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">except</span><span class="p">({</span>
+	<span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">polymorphic</span><span class="o">:</span> <span class="kc">true</span><span class="p">}]];</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Model</span><span class="p">({</span>
+	<span class="nx">subject_type</span><span class="o">:</span> <span class="s1">&#39;ship&#39;</span><span class="p">,</span>
+	<span class="nx">subject</span><span class="o">:</span> <span class="p">{</span><span class="nx">callsign</span><span class="o">:</span> <span class="s1">&#39;TREX&#39;</span><span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">).</span><span class="nx">modelName</span> <span class="k">instanceof</span> <span class="nx">Ship</span> <span class="c1">// =&gt; true</span>
+
+<span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">())</span>
+<span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;subject_type&#39;</span><span class="p">)</span> <span class="c1">// =&gt; &#39;car&#39;</span>
 </code></pre></div>
             </div>
         </div>
