@@ -100,14 +100,15 @@ Ship = Viking.Model.extend('ship', {
         <div class="section">
             <div class="notes">
                 <p>
-                    <code>belongsTo</code> takes and array of names for the associations.
-                    By default a <code>get('fleet')</code> in the example above would
-                    return <code>undefined</code> on a new instance of the model.
+                    <code>belongsTo</code> takes and array of names for the
+					associations. By default a <code>get('fleet')</code> in the
+					example would return <code>undefined</code> on a new instance
+					of the model.
                 </p>
                 <p>
-                    You can set the fleet with the normal <code>set</code> function or 
-                    through the inital attributes. Both accept either an model or the
-                    attributes used to construct the model.
+                    You can set the fleet with the normal <code>set</code> function
+					or through the inital attributes. Both accept either an model
+					or the attributes used to construct the model.
                 </p>
             </div>
             <div class="code">
@@ -130,6 +131,43 @@ Ship = Viking.Model.extend('ship', {
 belongsTo: ['village'];
 // or
 belongsTo: [['owner', {model: 'Village'}]];
+{% endhighlight %}
+            </div>
+        </div>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    Viking also supports polymorphic relations in a similar
+					fashion to Rails. If you specify <code>polymorphic: true</code>
+					in the options of a <code>belongsTo</code> relation.
+                </p>
+				<p>
+					In the example when setting or initalizing the model, if 
+					<code>subject</code> is a normal Javascript Object Viking
+					will look for <code>subject_type</code> in the attributes to
+					know what type of model <code>subject</code> needs to
+					instantiated as.
+				</p>
+				<p>
+					When setting or initalizing the model, if <code>subject</code>
+					is a Viking.Model then <code>subject_type</code> will be set
+					to the modelName of the value.
+				</p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+Model = Viking.Model.except({
+	belongsTo: [['subject', {polymorphic: true}]];
+});
+
+var model = new Model({
+	subject_type: 'ship',
+	subject: {callsign: 'TREX'}
+});
+model.get('subject').modelName instanceof Ship // => true
+
+model.set('subject', new Car())
+model.get('subject_type') // => 'car'
 {% endhighlight %}
             </div>
         </div>
