@@ -79,6 +79,7 @@ Ship = Viking.Model.extend('ship', {
     coercions: {
         name: 'String',
         size: 'Number',
+        roles: ['String', {array: true}],
         attributes: 'JSON',
         last_serviced_at: 'Date',
         operational: 'Boolean'
