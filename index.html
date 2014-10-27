@@ -368,11 +368,24 @@ FleetCollection = Viking.PaginatedCollection.extend({
         <h3>Templates</h3>
         <div class="section">
             <div class="notes">
-                <p>rendering...</p>
+                <p>
+                    Templates are functions stored under the
+                    <code>Viking.View.templates</code> object. The templates
+                    function accepts bindings that can be used when compiling
+                    the template.
+                </p>
+                <p>
+                    Templates can be rendered via
+                    <code>Viking.View.Helpers.render</code>.
+                </p>
             </div>
             <div class="code">
-{% highlight html %}
-//TODO
+{% highlight javascript %}
+Viking.View.templates['my/template'] = function (bindings) {
+    return 'My template';
+};
+
+Viking.View.Helpers.render('my/template'); // => 'My template'
 {% endhighlight %}
             </div>
         </div>
