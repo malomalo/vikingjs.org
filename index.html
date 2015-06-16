@@ -7,16 +7,13 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,700' rel='stylesheet' type='text/css'>
-    
-    <link rel="stylesheet" href="/assets/application-6c49fb305842d72fb57cd2b5ce3aba86.css">
-
+    <link rel="stylesheet" href="/assets/application-952e6ec961e6f22f9fac323b5d3fb897.css">
 </head>
 <body>
     <div class="header">
         <div class="header-container">
             <div class="logo">
-                <img src="/assets/viking.js-4d47385f38057e6d6d539581619eedee.png" title="Viking.js" height=100 width=350 />
+                <img src="/assets/viking.js-a60067436b30703b76f5b9c6ce44a982.png" title="Viking.js" height=100 width=350 />
                 <div class="tagline">Pillage your servers</div>
             </div>
         </div>
@@ -58,13 +55,12 @@
                 </ul>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/strftime.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/underscore.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/underscore.inflection.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/backbone.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/viking.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/viking.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
             </div>
         </div>
         
@@ -91,7 +87,7 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
     
     <span class="nx">coercions</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;String&#39;</span><span class="p">,</span>
@@ -109,8 +105,7 @@
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// ...</span>
     <span class="p">}</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
             </div>
         </div>
         
@@ -130,10 +125,9 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;fleet&#39;</span><span class="p">]</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
             </div>
         </div>
         <div class="section">
@@ -144,10 +138,9 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;village&#39;</span><span class="p">];</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;village&#39;</span><span class="p">];</span>
 <span class="c1">// or</span>
-<span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;owner&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;Village&#39;</span><span class="p">}]];</span>
-</code></pre></div>
+<span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;owner&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;Village&#39;</span><span class="p">}]];</span></code></pre></div>
             </div>
         </div>
         <div class="section">
@@ -171,7 +164,7 @@
 				</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">Model</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">except</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Model</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">except</span><span class="p">({</span>
 	<span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">polymorphic</span><span class="o">:</span> <span class="kc">true</span><span class="p">}]];</span>
 <span class="p">});</span>
 
@@ -182,8 +175,7 @@
 <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">).</span><span class="nx">modelName</span> <span class="k">instanceof</span> <span class="nx">Ship</span> <span class="c1">// =&gt; true</span>
 
 <span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">())</span>
-<span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;subject_type&#39;</span><span class="p">)</span> <span class="c1">// =&gt; &#39;car&#39;</span>
-</code></pre></div>
+<span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;subject_type&#39;</span><span class="p">)</span> <span class="c1">// =&gt; &#39;car&#39;</span></code></pre></div>
             </div>
         </div>
         
@@ -200,10 +192,9 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">Fleet</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;fleet&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Fleet</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;fleet&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;ships&#39;</span><span class="p">]</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
             </div>
         </div>
         <div class="section">
@@ -214,15 +205,14 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">hasMany</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;ships&#39;</span><span class="p">];</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">hasMany</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;ships&#39;</span><span class="p">];</span>
 <span class="c1">// =&gt; uses `ShipCollection`</span>
 
 <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;ships&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;Ship&#39;</span><span class="p">}]];</span>
 <span class="c1">// =&gt; uses `ShipCollection`</span>
 
 <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;ships&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;Ships&#39;</span><span class="p">}]];</span>
-<span class="c1">// =&gt; uses `Ships`</span>
-</code></pre></div>
+<span class="c1">// =&gt; uses `Ships`</span></code></pre></div>
             </div>
         </div>
         
@@ -256,7 +246,7 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[[</span><span class="s1">&#39;sailors&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;Human&#39;</span><span class="p">}]],</span>
 <span class="p">});</span>
 
@@ -266,8 +256,7 @@
 
 <span class="nx">GuidedMissileDestroyer</span> <span class="o">=</span> <span class="nx">Destroyer</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;guided_missile_destroyer&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">hasMany</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;missles&#39;</span><span class="p">],</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
             </div>
         </div>
 
@@ -283,10 +272,9 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">FleetCollection</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">FleetCollection</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">model</span><span class="o">:</span> <span class="nx">Ship</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
             </div>
         </div>
         <div class="section">
@@ -304,15 +292,14 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">fleet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FleetCollection</span><span class="p">({</span><span class="nx">predicate</span><span class="o">:</span> <span class="p">{}});</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">fleet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FleetCollection</span><span class="p">({</span><span class="nx">predicate</span><span class="o">:</span> <span class="p">{}});</span>
 
 <span class="c1">// or</span>
 <span class="kd">var</span> <span class="nx">predicate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Predicate</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">fleet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FleetCollection</span><span class="p">({</span><span class="nx">predicate</span><span class="o">:</span> <span class="nx">predicate</span><span class="p">});</span>
 
 <span class="c1">// triggers a fetch and includes {type: &#39;battleship&#39;} in the query params</span>
-<span class="nx">predicate</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;battleship&#39;</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">predicate</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;battleship&#39;</span><span class="p">);</span></code></pre></div>
             </div>
         </div>
         <div class="section">
@@ -340,11 +327,10 @@
                 </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="javascript"><span class="nx">FleetCollection</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">PaginatedCollection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">FleetCollection</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">PaginatedCollection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">model</span><span class="o">:</span> <span class="nx">Ship</span>
-<span class="p">});</span>
-</code></pre></div>
-<div class="highlight"><pre><code class="javascript"><span class="p">{</span>
+<span class="p">});</span></code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
     <span class="nx">page</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nx">offset</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">per_page</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
@@ -354,8 +340,7 @@
     <span class="nx">ships</span><span class="o">:</span> <span class="p">[</span>
         <span class="c1">// ...</span>
     <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
             </div>
         </div>
 
@@ -365,8 +350,7 @@
                 <p>routers...</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">//TODO
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//TODO</code></pre></div>
             </div>
         </div>
 
@@ -374,11 +358,23 @@
         <h3>Templates</h3>
         <div class="section">
             <div class="notes">
-                <p>rendering...</p>
+                <p>
+                    Templates are functions stored under the
+                    <code>Viking.View.templates</code> object. The templates
+                    function accepts bindings that can be used when compiling
+                    the template.
+                </p>
+                <p>
+                    Templates can be rendered via
+                    <code>Viking.View.Helpers.render</code>.
+                </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">//TODO
-</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Viking</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">templates</span><span class="p">[</span><span class="s1">&#39;my/template&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">bindings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;My template&#39;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Viking</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">Helpers</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;my/template&#39;</span><span class="p">);</span> <span class="c1">// =&gt; &#39;My template&#39;</span></code></pre></div>
             </div>
         </div>
 
@@ -389,8 +385,7 @@
                 <p>coming...</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">//TODO
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//TODO</code></pre></div>
             </div>
         </div>
 
@@ -401,7 +396,7 @@
                 <p>routers...</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">[[ formFor(listing, function(f) { ]]
+<div class="highlight"><pre><code class="language-html" data-lang="html">[[ formFor(listing, function(f) { ]]
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;section&quot;</span><span class="nt">&gt;</span>
         [[= f.label(&#39;address&#39;) ]]
         [[= f.textField(&#39;address&#39;)]]
@@ -409,8 +404,7 @@
         [[= f.label(&#39;space_type&#39;) ]]
         [[= f.select(&#39;space_type&#39;, [&quot;lease&quot;, &quot;sublease&quot;]) ]]
     <span class="nt">&lt;/div&gt;</span>
-[[ }) ]]
-</code></pre></div>
+[[ }) ]]</code></pre></div>
             </div>
         </div>
 
@@ -421,8 +415,7 @@
                 <p>coming...</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">//TODO
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//TODO</code></pre></div>
             </div>
         </div>
 
@@ -432,8 +425,7 @@
                 <p>coming...</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">//TODO
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//TODO</code></pre></div>
             </div>
         </div>
 
@@ -443,8 +435,7 @@
                 <p>coming...</p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="html">//TODO
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//TODO</code></pre></div>
             </div>
         </div>
     </div>
@@ -462,25 +453,31 @@
         </p>
                   <div class="contributor">
             <a href="https://github.com/malomalo">
-              <img src="https://avatars.githubusercontent.com/u/716?">
+              <img src="https://avatars.githubusercontent.com/u/716?v=3">
               <span class="name">malomalo</span>
             </a>
           </div>
           <div class="contributor">
             <a href="https://github.com/bemky">
-              <img src="https://avatars.githubusercontent.com/u/841033?">
+              <img src="https://avatars.githubusercontent.com/u/841033?v=3">
               <span class="name">bemky</span>
             </a>
           </div>
           <div class="contributor">
+            <a href="https://github.com/jono">
+              <img src="https://avatars.githubusercontent.com/u/549065?v=3">
+              <span class="name">jono</span>
+            </a>
+          </div>
+          <div class="contributor">
             <a href="https://github.com/waratuman">
-              <img src="https://avatars.githubusercontent.com/u/18227?">
+              <img src="https://avatars.githubusercontent.com/u/18227?v=3">
               <span class="name">waratuman</span>
             </a>
           </div>
           <div class="contributor">
             <a href="https://github.com/orangejulius">
-              <img src="https://avatars.githubusercontent.com/u/111716?">
+              <img src="https://avatars.githubusercontent.com/u/111716?v=3">
               <span class="name">orangejulius</span>
             </a>
           </div>
