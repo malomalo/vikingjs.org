@@ -1,8 +1,6 @@
-@import "lib/reset";
-@import "bourbon";
-@import "lib/grid-settings";
-@import "neat";
+@import "config/neat";
+@import "blackbird";
+
 @import "lib/uniform";
 @import "lib/syntax";
-
 @import "global";
