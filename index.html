@@ -3,8 +3,10 @@ layout: default
 title: Viking.js
 ---
 <div class="intro">
-    Viking.js is an open-source web framework for JavaScript. Built on
-    Backbone.js, it makes it easier to write client side JavaScript applications.
+    Viking.js is an open-source web framework for JavaScript.
+    <br />
+    Built on Backbone.js and inspired by Ruby on Rails; it makes it easier to
+    write client side JavaScript applications.
 </div>
 
 <div class="downloads">
@@ -394,11 +396,71 @@ Viking.View.Helpers.render('my/template'); // => 'My template'
         <h3>Views</h3>
         <div class="section">
             <div class="notes">
-                <p>coming...</p>
+                <p>
+                    <code>Viking.View</code> provides additional functionality
+                    ontop of <code>Backbone.View</code>. Helper functions include
+                    <code>Viking.View#subView</code>,
+                    <code>Viking.View#renderTemplate</code> and inheritance of
+                    View <code>events</code>.
+                </p>
             </div>
             <div class="code">
-{% highlight html %}
-//TODO
+{% highlight javascript %}
+WorldView = Viking.View.extend({
+    events: {
+        'click .region': 'zoomIn'
+    },
+    
+    zoomIn: function () {
+        // ...
+    }
+});
+
+FleetView = WorldView.extend({
+    
+    // FleetView inherits from WorldView which is a
+    // Viking.View so it will still have the
+    // 'click .region' event, unless it is overridden
+    events: {
+        'click .ship': 'showShipInfo'
+    },
+    
+    showShipInfo: function () {
+        // ...
+    }
+});
+{% endhighlight %}
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="notes">
+                <p>
+                    <code>Viking.View#renderTemplate</code> is an alias for
+                    <code>Viking.View.Helpers.render(template, locals)</code>.
+                    <code>Viking.View.Helpers.render(template, locals)</code>
+                    allows you pass locals but also includes all the
+                    <code>Viking.View.Helpers</code> for use in your template
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+Viking.View.templates['fleet/overview'] = function () {
+    
+    return formTag({action: '/inspect'}, function() {
+        return labelTag("Ship " + ship.name) + submitTag('Inspect');
+    });
+    
+};
+
+FleetView = Viking.View.extend({
+    
+    render: function () {
+        this.$el.html(this.renderTemplate('fleet/overview'))
+        return this;
+    }
+    
+});
 {% endhighlight %}
             </div>
         </div>

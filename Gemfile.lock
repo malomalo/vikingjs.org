@@ -121,3 +121,6 @@ DEPENDENCIES
   neat (= 1.7.1)
   sass
   sprockets-sass
+
+BUNDLED WITH
+   1.10.4
