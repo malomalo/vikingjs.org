@@ -19,8 +19,10 @@
         </div>
     </div>
     <div class="intro">
-    Viking.js is an open-source web framework for JavaScript. Built on
-    Backbone.js, it makes it easier to write client side JavaScript applications.
+    Viking.js is an open-source web framework for JavaScript.
+    <br />
+    Built on Backbone.js and inspired by Ruby on Rails; it makes it easier to
+    write client side JavaScript applications.
 </div>
 
 <div class="downloads">
@@ -382,10 +384,68 @@
         <h3>Views</h3>
         <div class="section">
             <div class="notes">
-                <p>coming...</p>
+                <p>
+                    <code>Viking.View</code> provides additional functionality
+                    ontop of <code>Backbone.View</code>. Helper functions include
+                    <code>Viking.View#subView</code>,
+                    <code>Viking.View#renderTemplate</code> and inheritance of
+                    View <code>events</code>.
+                </p>
             </div>
             <div class="code">
-<div class="highlight"><pre><code class="language-html" data-lang="html">//TODO</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">WorldView</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click .region&#39;</span><span class="o">:</span> <span class="s1">&#39;zoomIn&#39;</span>
+    <span class="p">},</span>
+    
+    <span class="nx">zoomIn</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">FleetView</span> <span class="o">=</span> <span class="nx">WorldView</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    
+    <span class="c1">// FleetView inherits from WorldView which is a</span>
+    <span class="c1">// Viking.View so it will still have the</span>
+    <span class="c1">// &#39;click .region&#39; event, unless it is overridden</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;click .ship&#39;</span><span class="o">:</span> <span class="s1">&#39;showShipInfo&#39;</span>
+    <span class="p">},</span>
+    
+    <span class="nx">showShipInfo</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="notes">
+                <p>
+                    <code>Viking.View#renderTemplate</code> is an alias for
+                    <code>Viking.View.Helpers.render(template, locals)</code>.
+                    <code>Viking.View.Helpers.render(template, locals)</code>
+                    allows you pass locals but also includes all the
+                    <code>Viking.View.Helpers</code> for use in your template
+                </p>
+            </div>
+            <div class="code">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Viking</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">templates</span><span class="p">[</span><span class="s1">&#39;fleet/overview&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    
+    <span class="k">return</span> <span class="nx">formTag</span><span class="p">({</span><span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;/inspect&#39;</span><span class="p">},</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">labelTag</span><span class="p">(</span><span class="s2">&quot;Ship &quot;</span> <span class="o">+</span> <span class="nx">ship</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="o">+</span> <span class="nx">submitTag</span><span class="p">(</span><span class="s1">&#39;Inspect&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+    
+<span class="p">};</span>
+
+<span class="nx">FleetView</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">renderTemplate</span><span class="p">(</span><span class="s1">&#39;fleet/overview&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+<span class="p">});</span></code></pre></div>
             </div>
         </div>
 
