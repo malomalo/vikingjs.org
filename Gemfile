@@ -6,7 +6,7 @@ gem "sprockets-sass"
 
 
 gem "jekyll"
-gem "jekyll-assets", '~> 1.0.0.pre.alpha1', :require => 'jekyll/assets'
+gem "jekyll-assets", '~> 1.0.0', :require => 'jekyll/assets'
 
 gem 'fortycons', :git => 'git@github.com:42floors/fortycons.git'
 gem 'neat', '1.7.1'

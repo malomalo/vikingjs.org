@@ -70,21 +70,21 @@ title: Viking.js
                     and generate any urls.
                 </p>
                 <p>
-                    The coercions take care of serializing to and from JSON as well as
-                    converting attributes to the appropriate type when they are set.
+                    The <code>schema</code> defines the types to serialize to and from JSON as well as
+                    converting attributes to the appropriate type when they are set by the user.
                 </p>
             </div>
             <div class="code">
 {% highlight javascript %}
 Ship = Viking.Model.extend('ship', {
     
-    coercions: {
-        name: 'String',
-        size: 'Number',
-        roles: ['String', {array: true}],
-        attributes: 'JSON',
-        last_serviced_at: 'Date',
-        operational: 'Boolean'
+    schema: {
+        name: {type: 'string'},
+        size: {type: 'number'},
+        roles: {type: 'string', array: true},
+        attributes: {type: 'json'},
+        last_serviced_at: {type: 'date'},
+        operational: {type: 'boolean', "default": false}
     },
     
     belongsTo: ['fleet'],
@@ -93,6 +93,30 @@ Ship = Viking.Model.extend('ship', {
     
     initialize: function () {
         // ...
+    }
+});
+{% endhighlight %}
+            </div>
+        </div>
+
+        <h4>Defaults</h4>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    Instead of setting <code>defaults</code> like in 
+                    <a href="http://backbonejs.org/#Model-defaults">Backbone.js</a>
+                    the default values for attributes are defined in the 
+                    <code>schema</code>.
+                </p>
+            </div>
+            <div class="code">
+{% highlight javascript %}
+Ship = Viking.Model.extend('ship', {
+    schema: {
+        operational: { type: 'boolean', "default": false },
+        created_at:  { type: 'date', "default": function () { 
+            return new Date();
+        } }
     }
 });
 {% endhighlight %}
