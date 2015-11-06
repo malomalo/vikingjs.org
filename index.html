@@ -27,7 +27,7 @@
 
 <div class="downloads">
     <a class="btn outline" href="https://github.com/malomalo/viking/">Github</a>
-    <a class="btn green" href="https://github.com/malomalo/viking/releases/download/0.7.0/viking.js"><span class="icon">&#xe602;</span>Download 0.7.0</a>
+    <a class="btn green" href="https://github.com/malomalo/viking/releases/download/0.8.0/viking.js"><span class="icon">&#xe602;</span>Download 0.8.0</a>
 </div>
 
 <div class="docs">
@@ -84,20 +84,20 @@
                     and generate any urls.
                 </p>
                 <p>
-                    The coercions take care of serializing to and from JSON as well as
-                    converting attributes to the appropriate type when they are set.
+                    The <code>schema</code> defines the types to serialize to and from JSON as well as
+                    converting attributes to the appropriate type when they are set by the user.
                 </p>
             </div>
             <div class="code">
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
     
-    <span class="nx">coercions</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;String&#39;</span><span class="p">,</span>
-        <span class="nx">size</span><span class="o">:</span> <span class="s1">&#39;Number&#39;</span><span class="p">,</span>
-        <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;String&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">array</span><span class="o">:</span> <span class="kc">true</span><span class="p">}],</span>
-        <span class="nx">attributes</span><span class="o">:</span> <span class="s1">&#39;JSON&#39;</span><span class="p">,</span>
-        <span class="nx">last_serviced_at</span><span class="o">:</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span>
-        <span class="nx">operational</span><span class="o">:</span> <span class="s1">&#39;Boolean&#39;</span>
+    <span class="nx">schema</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
+        <span class="nx">size</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span><span class="p">},</span>
+        <span class="nx">roles</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">array</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span>
+        <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">},</span>
+        <span class="nx">last_serviced_at</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;date&#39;</span><span class="p">},</span>
+        <span class="nx">operational</span><span class="o">:</span> <span class="p">{</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span>
     <span class="p">},</span>
     
     <span class="nx">belongsTo</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;fleet&#39;</span><span class="p">],</span>
@@ -106,6 +106,28 @@
     
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+            </div>
+        </div>
+
+        <h4>Defaults</h4>
+        <div class="section">
+            <div class="notes">
+                <p>
+                    Instead of setting <code>defaults</code> like in 
+                    <a href="http://backbonejs.org/#Model-defaults">Backbone.js</a>
+                    the default values for attributes are defined in the 
+                    <code>schema</code>.
+                </p>
+            </div>
+            <div class="code">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Ship</span> <span class="o">=</span> <span class="nx">Viking</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;ship&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">schema</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">operational</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span>
+        <span class="nx">created_at</span><span class="o">:</span>  <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> 
+            <span class="k">return</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="p">}</span> <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">});</span></code></pre></div>
             </div>
@@ -524,15 +546,15 @@
             </a>
           </div>
           <div class="contributor">
-            <a href="https://github.com/jono">
-              <img src="https://avatars.githubusercontent.com/u/549065?v=3">
-              <span class="name">jono</span>
-            </a>
-          </div>
-          <div class="contributor">
             <a href="https://github.com/waratuman">
               <img src="https://avatars.githubusercontent.com/u/18227?v=3">
               <span class="name">waratuman</span>
+            </a>
+          </div>
+          <div class="contributor">
+            <a href="https://github.com/jono">
+              <img src="https://avatars.githubusercontent.com/u/549065?v=3">
+              <span class="name">jono</span>
             </a>
           </div>
           <div class="contributor">
